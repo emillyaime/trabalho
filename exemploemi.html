@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exemplo de Input e forEach</title>
+</head>
+<body>
+  <label for="valoresInput">Digite os números separados por um ponto:</label>
+  <input type="text" id="valoresInput">
+  <button onclick="processarValores()">Adicionar</button>
+
+  <ul id="listaValores"></ul>
+
+  <script>
+    function processarValores() {
+      const valoresInput = document.getElementById("valoresInput");
+      const listaValores = document.getElementById("listaValores");
+      
+      const valores = valoresInput.value.split(",");
+      
+      valores.forEach(function(valor) {
+        const itemLista = document.createElement("li");
+        const valorMultiplicado = parseInt(valor.trim()) * 2;
+        itemLista.textContent = valorMultiplicado;
+        listaValores.appendChild(itemLista);
+      });
+      
+      valoresInput.value = "";
+    }
+  </script>
+</body>
+</html>
